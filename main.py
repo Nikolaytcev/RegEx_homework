@@ -2,7 +2,9 @@ import csv
 
 from forming_new_file import Person
 
+from test_1 import logger
 
+@logger
 def make_new_file(all_data):
     data_list = []
     data = {}
@@ -23,7 +25,7 @@ def make_new_file(all_data):
         data_list.append(data_)
     return data_list
 
-
+@logger
 def forming_data(data):
     info = {'lastname': 1, 'firstname': 3, 'surname': 5}
     name, organization, position, phone, email = Person(data).forming_new_data()
@@ -47,7 +49,7 @@ def forming_data(data):
         new_data['email'] = email.group(0)
     return new_data
 
-
+@logger
 def main():
     with open("phonebook_raw.csv", encoding='utf-8') as f:
         rows = csv.reader(f, delimiter=",")
